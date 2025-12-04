@@ -2,7 +2,7 @@
 
 `timescale 1ns / 1ps
 
-module fsm (
+module multi_cycle_controller (
     input clk,
     input rst,
     input [6:0] op,
@@ -84,7 +84,7 @@ module fsm (
             S9_JAL : next_state = S7_ALUWB;
             S10_BEQ : next_state = S0_Fetch;                    // Branch in general
 
-            default : next_state = S12_HALT;
+            default : next_state = S11_HALT;
         endcase
     end
 

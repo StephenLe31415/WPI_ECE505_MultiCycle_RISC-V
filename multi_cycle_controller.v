@@ -9,7 +9,8 @@ module multi_cycle_controller (
     output reg [1:0] ResultSrc,
     output reg AddrSrc,
     output reg [2:0] ALUControl,
-    output reg IRWrite, PCWrite, RegWrite, MemWrite
+    output reg IRWrite, RegWrite, MemWrite,
+    output PCWrite
 );
 
     wire beq, bne;

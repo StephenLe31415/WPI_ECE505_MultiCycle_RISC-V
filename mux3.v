@@ -4,6 +4,6 @@ module mux3 #(parameter W = 32) (
     output [W-1:0] y
 );
 
-    assign y = (s == 2'b00)? a : ((s == 2'b01)? b : c);
+    assign y = (sel == 2'b00)? a : ((sel == 2'b01)? b : c);
 
 endmodule

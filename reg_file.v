@@ -1,6 +1,6 @@
 module reg_file (
     input clk, 
-    input rst,
+    input reset,
     input WE3,
     input [31:0] WD3,
     input [4:0] A1, A2, A3,
