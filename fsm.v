@@ -10,7 +10,7 @@ module fsm (
 
     output reg PCUpdate,
     output reg Branch,
-    output reg AdrSrc,
+    output reg AddrSrc,
     output reg MemWrite, IRWrite, RegWrite,
     output reg [1:0] ResultSrc,
     output reg [1:0] ALUOp,
@@ -100,7 +100,7 @@ module fsm (
                 ResultSrc = 2'b10;
                 ALUSrcB = 2'b10;
                 ALUSrcA = 2'b00;
-                AdrSrc = 1'b0;
+                AddrSrc = 1'b0;
                 ALUOp = 2'b00;
             end
 
@@ -113,11 +113,11 @@ module fsm (
                 ResultSrc = 2'b00;
                 ALUSrcB = 2'b01;
                 ALUSrcA = 2'b01;
-                AdrSrc = 1'b0;
+                AddrSrc = 1'b0;
                 ALUOp = 2'b00;
             end
 
-            S2_MemAdr: begin
+            S2_MemAddr: begin
                 Branch = 1'b0;
                 PCUpdate = 1'b0;
                 RegWrite = 1'b0;
@@ -126,7 +126,7 @@ module fsm (
                 ResultSrc = 2'b00;
                 ALUSrcB = 2'b01;
                 ALUSrcA = 2'b10;
-                AdrSrc = 1'b0;
+                AddrSrc = 1'b0;
                 ALUOp = 2'b00;
             end
 
@@ -139,7 +139,7 @@ module fsm (
                 ResultSrc = 2'b00;
                 ALUSrcB = 2'b00;
                 ALUSrcA = 2'b00;
-                AdrSrc = 1'b1;
+                AddrSrc = 1'b1;
                 ALUOp = 2'b00;
             end
 
@@ -152,7 +152,7 @@ module fsm (
                 ResultSrc = 2'b01;
                 ALUSrcB = 2'b00;
                 ALUSrcA = 2'b00;
-                AdrSrc = 1'b0;
+                AddrSrc = 1'b0;
                 ALUOp = 2'b00;
             end
 
@@ -165,7 +165,7 @@ module fsm (
                 ResultSrc = 2'b10;
                 ALUSrcB = 2'b10;
                 ALUSrcA = 2'b00;
-                AdrSrc = 1'b0;
+                AddrSrc = 1'b0;
                 ALUOp = 2'b00;
             end
 
@@ -178,7 +178,7 @@ module fsm (
                 ResultSrc = 2'b00;
                 ALUSrcB = 2'b00;
                 ALUSrcA = 2'b10;
-                AdrSrc = 1'b0;
+                AddrSrc = 1'b0;
                 ALUOp = 2'b10;
             end
 
@@ -191,7 +191,7 @@ module fsm (
                 ResultSrc = 2'b00;
                 ALUSrcB = 2'b00;
                 ALUSrcA = 2'b00;
-                AdrSrc = 1'b0;
+                AddrSrc = 1'b0;
                 ALUOp = 2'b00;                
             end
             
@@ -204,7 +204,7 @@ module fsm (
                 ResultSrc = 2'b00;
                 ALUSrcB = 2'b01;
                 ALUSrcA = 2'b10;
-                AdrSrc = 1'b0;
+                AddrSrc = 1'b0;
                 ALUOp = 2'b10;
             end
 
@@ -217,7 +217,7 @@ module fsm (
                 ResultSrc = 2'b00;
                 ALUSrcB = 2'b10;
                 ALUSrcA = 2'b01;
-                AdrSrc = 1'b0;
+                AddrSrc = 1'b0;
                 ALUOp = 2'b00;                
             end
 
@@ -230,7 +230,7 @@ module fsm (
                 ResultSrc = 2'b00;
                 ALUSrcB = 2'b00;
                 ALUSrcA = 2'b10;
-                AdrSrc = 1'b0;
+                AddrSrc = 1'b0;
                 ALUOp = 2'b00;
             end
 
@@ -243,7 +243,7 @@ module fsm (
                 ResultSrc = 2'bxx;
                 ALUSrcB = 2'bxx;
                 ALUSrcA = 2'bxx;
-                AdrSrc = 1'bx;
+                AddrSrc = 1'bx;
                 ALUOp = 2'bxx;                
             end
         endcase

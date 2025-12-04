@@ -19,7 +19,7 @@ module multi_cycle_controller (
     reg [1:0] ALUOp;
 
     // Control Unit FSM
-    fsm FSM (
+    fsm fsm (
         .clk(clk),
         .rst(rst),
         .op(op),
