@@ -8,7 +8,7 @@ module mem (
     reg [31:0] file [63:0];
     integer i;
     initial begin
-       // Init the instruction codes
+      // Init the instruction codes
       // PROGRAM 1
       // Status: TESTING
       file[0] = 32'h00000093;

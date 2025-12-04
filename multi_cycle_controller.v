@@ -1,27 +1,28 @@
 module multi_cycle_controller (
-    input clk, rst,
+    input clk, reset,
     input [6:0] op,
     input [2:0] funct3, 
     input [6:0] funct7,
     input zero,
-    output reg [2:0] ImmSrc,
-    output reg [1:0] ALUSrcA, ALUSrcB,
-    output reg [1:0] ResultSrc,
-    output reg AddrSrc,
-    output reg [2:0] ALUControl,
-    output reg IRWrite, RegWrite, MemWrite,
+    
+    output [1:0] ImmSrc,
+    output [1:0] ALUSrcA, ALUSrcB,
+    output [1:0] ResultSrc,
+    output AddrSrc,
+    output [2:0] ALUControl,
+    output IRWrite, RegWrite, MemWrite,
     output PCWrite
 );
 
     wire beq, bne;
     wire Branch;
     wire PCUpdate;
-    reg [1:0] ALUOp;
+    wire [1:0] ALUOp;
 
     // Control Unit FSM
     fsm fsm (
         .clk(clk),
-        .rst(rst),
+        .reset(reset),
         .op(op),
         .funct3(funct3),
         .PCUpdate(PCUpdate),            // = Jump

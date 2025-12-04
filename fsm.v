@@ -4,7 +4,7 @@
 
 module fsm (
     input clk,
-    input rst,
+    input reset,
     input [6:0] op,
     input [2:0] funct3,
 
@@ -45,8 +45,8 @@ module fsm (
     reg [3:0] state, next_state;
 
     // Seq. next-state logic
-    always @ (posedge clk or posedge rst) begin
-        if (rst == 1'b1) state <= S0_Fetch;
+    always @ (posedge clk or posedge reset) begin
+        if (reset == 1'b1) state <= S0_Fetch;
         else state <= next_state;
     end
 

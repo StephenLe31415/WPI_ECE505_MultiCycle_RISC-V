@@ -1,9 +1,9 @@
 module datapath (
     input clk,
-    input rst,
+    input reset,
     
     input [1:0] ImmSrc,
-    input [3:0] ALUControl,
+    input [2:0] ALUControl,
     input [1:0] ResultSrc,
     input IRWrite, RegWrite, PCWrite,
     input [1:0] ALUSrcA, ALUSrcB,
@@ -24,7 +24,7 @@ module datapath (
    // PC
    flopenr #(32) pcFlop (
         .clk(clk),
-        .rst(rst),
+        .reset(reset),
         .en(PCWrite),
         .d(Result),
         .q(PC)
@@ -33,7 +33,7 @@ module datapath (
    /***** REG FILE *****/
    reg_file rf (
         .clk(clk),
-        .rst(rst),
+        .reset(reset),
         .WE3(RegWrite),
         .WD3(Result),
         .A1(Instr[19:15]),
@@ -53,7 +53,7 @@ module datapath (
     // Reg file flop for RD1
    flopr #(32) rf_1 (
         .clk(clk),
-        .rst(rst),
+        .reset(reset),
         .d(RD1),
         .q(A)
    );
@@ -61,7 +61,7 @@ module datapath (
     // Reg file flop for RD2
     flopr #(32) rf_2 (
         .clk(clk),
-        .rst(rst),
+        .reset(reset),
         .d(RD2),
         .q(WriteData)
     );
@@ -96,7 +96,7 @@ module datapath (
     // ALUOut flop
     flopr #(32) ALUOut_flop (
         .clk(clk),
-        .rst(rst),
+        .reset(reset),
         .d(ALUResult),
         .q(ALUOut)
     );
@@ -122,8 +122,8 @@ module datapath (
     // Mem PC flop
     flopenr #(32) PC_flop (
         .clk(clk),
-        .rst(rst),
-        .en(IRWRite),
+        .reset(reset),
+        .en(IRWrite),
         .d(PC),
         .q(OldPC)
     );
@@ -131,7 +131,7 @@ module datapath (
     // Mem Instr. flop
     flopenr #(32) Instr_flop (
         .clk(clk),
-        .rst(rst),
+        .reset(reset),
         .en(IRWrite),
         .d(ReadData),
         .q(Instr)
@@ -140,7 +140,7 @@ module datapath (
     // Mem Data flop
     flopr #(32) memDataFlop (
         .clk(clk),
-        .rst(rst),
+        .reset(reset),
         .d(ReadData),
         .q(Data)
     );

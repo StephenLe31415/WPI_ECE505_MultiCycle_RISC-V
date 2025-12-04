@@ -2,11 +2,11 @@
 
 module RISCV_multicycle (
     input clk,
-    input rst,
+    input reset,
     input [31:0] ReadData,
 
     output [31:0] Addr,
-    output reg MemWrite,
+    output MemWrite,
     output [31:0] WriteData
 );
 
@@ -19,7 +19,7 @@ module RISCV_multicycle (
     // Controller
     multi_cycle_controller cntrllr (
         .clk(clk),
-        .rst(rst),
+        .reset(reset),
         .op(Instr[6:0]),
         .funct3(Instr[14:12]),
         .funct7(Instr[31:25]),
@@ -39,7 +39,7 @@ module RISCV_multicycle (
     // Datapath
     datapath dp (
         .clk(clk),
-        .rst(rst),
+        .reset(reset),
         .ImmSrc(ImmSrc),
         .ALUControl(ALUControl),
         .ResultSrc(ResultSrc),
