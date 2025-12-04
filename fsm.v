@@ -246,6 +246,19 @@ module fsm (
                 AddrSrc = 1'bx;
                 ALUOp = 2'bxx;                
             end
+            
+            default : begin
+                Branch = 1'bx;
+                PCUpdate = 1'bx;
+                RegWrite = 1'bx;
+                MemWrite = 1'bx;
+                IRWrite = 1'bx;
+                ResultSrc = 2'bxx;
+                ALUSrcB = 2'bxx;
+                ALUSrcA = 2'bxx;
+                AddrSrc = 1'bx;
+                ALUOp = 2'bxx; 
+            end
         endcase
     end
 
@@ -259,6 +272,7 @@ module fsm (
             OP_JAL : ImmSrc = 2'b11;
             OP_JALR : ImmSrc = 2'b00;
             OP_R : ImmSrc = 2'b00;
+            default : ImmSrc = 2'dx;
         endcase
     end
 
