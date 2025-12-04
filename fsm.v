@@ -2,18 +2,18 @@
 
 `timescale 1ns / 1ps
 
-module multi_cycle_controller (
+module fsm (
     input clk,
     input rst,
     input [6:0] op,
     input [2:0] funct3,
 
     output reg PCUpdate,
-    output reg Branch
+    output reg Branch,
     output reg AdrSrc,
     output reg MemWrite, IRWrite, RegWrite,
     output reg [1:0] ResultSrc,
-    output reg [1:0] ALUOp
+    output reg [1:0] ALUOp,
     output reg [1:0] ALUSrcA, ALUSrcB,
     output reg [1:0] ImmSrc
 );
@@ -60,8 +60,8 @@ module multi_cycle_controller (
                     OP_LW : next_state = S2_MemAddr;
                     OP_SW : next_state = S2_MemAddr;
                     OP_R  : next_state = S6_Execute_R;
-                    OP_Branch : next_state = (funct3 == 3'b000)? S10_BEQ : S11_BNE;
-                    OP_I : next_state = S8_Execute_I
+                    OP_Branch : next_state = S10_BEQ;
+                    OP_I : next_state = S8_Execute_I;
                     OP_JAL : next_state = S9_JAL;
                     OP_JALR : next_state = S2_MemAddr;
                     default : next_state = S0_Fetch;
