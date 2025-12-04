@@ -2,7 +2,7 @@
 
 `timescale 1ns / 1ps
 
-module multi_cycle_controller (
+module fsm (
     input clk,
     input rst,
     input [6:0] op,
