@@ -55,5 +55,5 @@ module RISCV_multicycle (
         .WriteData(WriteData),
         .Instr(Instr)
     );
-
+    
 endmodule

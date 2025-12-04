@@ -108,7 +108,7 @@ module fsm (
                 Branch = 1'b0;
                 PCUpdate = 1'b0;
                 RegWrite = 1'b0;
-                MemWrite = 1'b1;
+                MemWrite = 1'b0;
                 IRWrite = 1'b0;
                 ResultSrc = 2'b00;
                 ALUSrcB = 2'b01;
@@ -160,7 +160,7 @@ module fsm (
                 Branch = 1'b0;
                 PCUpdate = 1'b1;
                 RegWrite = 1'b0;
-                MemWrite = 1'b0;
+                MemWrite = 1'b1;
                 IRWrite = 1'b1;
                 ResultSrc = 2'b10;
                 ALUSrcB = 2'b10;
