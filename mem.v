@@ -10,38 +10,38 @@ module mem (
     initial begin
       // Init the instruction codes
       // PROGRAM 1
-      // Status: TESTING
-      file[0] = 32'h00000093;
-      file[1] = 32'h01000113;
-      file[2] = 32'h06400193;
-      file[3] = 32'h00800213;
-      file[4] = 32'h002082b3;
-      file[5] = 32'h00418333;
-      file[6] = 32'h0050a023;
-      file[7] = 32'h00612223;
-      file[8] = 32'h11111111;       // HALT
-      for (i = 9; i < 32; i = i + 1) begin
-        file[i] = 32'd0;
-      end
+      // Status: PASSED
+//      file[0] = 32'h00000093;                 // START OF PROGRAM 1
+//      file[1] = 32'h01000113;
+//      file[2] = 32'h06400193;
+//      file[3] = 32'h00800213;
+//      file[4] = 32'h002082b3;
+//      file[5] = 32'h00418333;
+//      file[6] = 32'h0050a023;
+//      file[7] = 32'h00612223;
+//      file[8] = 32'h11111111;       // HALT
+//      for (i = 9; i < 32; i = i + 1) begin
+//        file[i] = 32'd0;
+//      end                                     // END OF PROGRAM 1
     
  /***********************************************************************************************/         
  
           // PROGRAM 2
           // Status: TESTING
-//          file[0] = 32'h00800293;
-//          file[1] = 32'h00f00313;
-//          file[2] = 32'h0062a023;
-//          file[3] = 32'h005303b3;
-//          file[4] = 32'h40530e33;
-//          file[5] = 32'h03c384b3;
-//          file[6] = 32'h00428293;
-//          file[7] = 32'hffc2a903;
-//          file[8] = 32'h41248933;
-//          file[9] = 32'h00291913;
-//          file[10] = 32'h0122a023;
-//          for (i = 11; i < 32; i = i + 1) begin
-//            file[i] = 32'd0;
-//          end
+          file[0] = 32'h00800293;                   // START OF PROGRAM 2
+          file[1] = 32'h00f00313;
+          file[2] = 32'h0062a023;
+          file[3] = 32'h005303b3;
+          file[4] = 32'h40530e33;
+          file[5] = 32'h03c384b3;
+          file[6] = 32'h00428293;
+          file[7] = 32'hffc2a903;
+          file[8] = 32'h41248933;
+          file[9] = 32'h00291913;
+          file[10] = 32'h0122a023;
+          for (i = 11; i < 32; i = i + 1) begin
+            file[i] = 32'd0;
+          end                                       // END OF PROGRAM 2
     
 /***********************************************************************************************/
     
@@ -72,7 +72,7 @@ module mem (
 /***********************************************************************************************/
 
     // ADDITIONAL TEST PROGRAM TO TEST BRANCH & JUMP (From Harris & Harris)
-    // Status: TESTING
+    // Status: PASSED
 //    file[0] = 32'h00500113;  
 //    file[1] = 32'h00C00193;
 //    file[2] = 32'hFF718393;

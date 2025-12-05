@@ -18,6 +18,7 @@ module multi_cycle_controller (
     wire Branch;
     wire PCUpdate;
     wire [1:0] ALUOp;
+    wire [3:0] state;
 
     // Control Unit FSM
     fsm fsm (
@@ -35,7 +36,8 @@ module multi_cycle_controller (
         .ALUOp(ALUOp),
         .ALUSrcA(ALUSrcA),
         .ALUSrcB(ALUSrcB),
-        .ImmSrc(ImmSrc)
+        .ImmSrc(ImmSrc),
+        .state(state)
     );
 
     // ALU Decoder

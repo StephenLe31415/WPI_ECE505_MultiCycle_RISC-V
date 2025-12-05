@@ -15,7 +15,8 @@ module fsm (
     output reg [1:0] ResultSrc,
     output reg [1:0] ALUOp,
     output reg [1:0] ALUSrcA, ALUSrcB,
-    output reg [1:0] ImmSrc
+    output reg [1:0] ImmSrc,
+    output reg [3:0] state
 );
 
     // State encoding
@@ -42,7 +43,7 @@ module fsm (
     localparam OP_JALR = 7'b1100111;
 
     // State, next-state regs
-    reg [3:0] state, next_state;
+    reg [3:0] next_state;
 
     // Seq. next-state logic
     always @ (posedge clk or posedge reset) begin
@@ -158,14 +159,14 @@ module fsm (
 
             S5_MemWrite: begin
                 Branch = 1'b0;
-                PCUpdate = 1'b1;
+                PCUpdate = 1'b0;
                 RegWrite = 1'b0;
                 MemWrite = 1'b1;
-                IRWrite = 1'b1;
-                ResultSrc = 2'b10;
-                ALUSrcB = 2'b10;
+                IRWrite = 1'b0;
+                ResultSrc = 2'b00;
+                ALUSrcB = 2'b00;
                 ALUSrcA = 2'b00;
-                AddrSrc = 1'b0;
+                AddrSrc = 1'b1;
                 ALUOp = 2'b00;
             end
 
@@ -231,7 +232,7 @@ module fsm (
                 ALUSrcB = 2'b00;
                 ALUSrcA = 2'b10;
                 AddrSrc = 1'b0;
-                ALUOp = 2'b00;
+                ALUOp = 2'b01;
             end
 
             S11_HALT: begin
